@@ -17,9 +17,9 @@
 <br />
 
 ## 커밋 컨벤션
-  - ⭐create: 글을 새로 추가하는 경우
-  - ✏️update: 기존에 작성한 글을 수정하는 경우
-  - ❌delete: 기존에 작성한 글을 삭제하는 경우
-  - 📜docs: `README.md` 수정
+  - create: 글을 새로 추가하는 경우
+  - update: 기존에 작성한 글을 수정하는 경우
+  - delete: 기존에 작성한 글을 삭제하는 경우
+  - docs: `README.md` 수정
 
 <br />
