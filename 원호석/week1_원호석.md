@@ -53,11 +53,71 @@ We can create new NestJS project with following command.
   npx --package @nestjs/cli nest new <project name>
 ```
 
-We can also create components like module controller, service... etc as follow.
+We can also create components like module controller, service... etc. as following.
 
 ```
   npx nest g <component name> <domain name>
 ```
+## 3. Main Function
+
+```
+    import { NestFactory } from '@nestjs/core';
+    import { AppModule } from "./app.module";
+
+    async function bootstrap() {
+        const app = await NestFactory.create(AppModule);
+        await app.listen(process.env.PORT ?? 3000);
+    }
+    
+    bootstrap();
+```
+
+AppModule is a root module of the project.
+Every module should be registered at AppModule as following:
+
+```
+    @Module({
+        imports: [AModule, BModule,...],
+    })
+    export class AppModule {}
+```
+
+## 4. Module
+
+Module is a class with annotation @Module.
+Classes registered at module are managed by Nest Container.
+You can share service with other modules by registering at exports field.
+
+```
+    @Module({
+        controllers: [AController....],
+        providers: [AModule....]
+        exports: [....]
+    })
+    export class AModule {}
+```
+
+## 5. Controller
+
+Controller is a class with annotation @Controller()
+
+```
+    @Controller('A') // common route to api
+    export class AController {
+
+        constructor(
+            private readonly _aService: AService // injected by container
+        ) {}
+
+        @Get("/") // Path: /A
+        async method1(): Response1 {...}
+        
+        @Post("/foo") // Path: /A/foo
+        async method2(): Reponse2 {...}
+}
+```
+
+
 
 
 
