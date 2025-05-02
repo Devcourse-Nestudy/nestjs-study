@@ -146,12 +146,6 @@ function DecoratorFactory({ name }: DecoratorConfig) {
     }
 }
 
-class Service {
-    @DecoratorFactory({ name: "foo" })
-    hello() {
-        console.log("Nice to meet you!");
-    }
-}
 
 const service = new Service();
 service.hello();
