@@ -9,7 +9,7 @@ import { UsersModule } from './users/users.module';
   imports: [
     UsersModule,
     ConfigModule.forRoot({
-      envFilePath: [`${__dirname}/config/env/.development.env`],
+      envFilePath: [`src/config/env/.development.env`],
       load: [emailConfig],
       isGlobal: true,
     }),
