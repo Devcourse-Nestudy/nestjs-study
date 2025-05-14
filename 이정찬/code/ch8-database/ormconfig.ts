@@ -1,12 +1,17 @@
 import { DataSource } from 'typeorm';
+import { Module } from '@nestjs/common';
 
-export const AppDataSource = new DataSource({
+const AppDataSource = new DataSource({
   type: 'mysql',
-  host: '127.0.0.1',
+  host: 'localhost',
   port: 3306,
   username: 'root',
   password: 'root',
   database: 'test',
-  entities: [new URL('./**/*.entity{.ts,.js}', import.meta.url).pathname],
+  entities: [__dirname + '/**/*.entity{.ts,.js}'],
   synchronize: false,
+  migrations: [__dirname + '/**/migrations/*.js'],
+  migrationsTableName: 'migrations',
 });
+
+export default AppDataSource;
