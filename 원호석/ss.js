@@ -1,0 +1,5 @@
+String.prototype = () => {
+
+}
+
+a["a"]
