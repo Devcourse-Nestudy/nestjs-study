@@ -226,7 +226,7 @@ getUser(@Param('id', ParseIntPipe) id: number) {
 
 ## class-validator & class-transformer
 
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
 ### 설치
 
